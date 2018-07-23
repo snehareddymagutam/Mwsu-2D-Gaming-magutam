@@ -63,14 +63,11 @@ var play = {
 			var offset = (Math.random() < 0.5 ? -1 : 1) * Math.random() * (150)
 
 			// randamize obstacles in the list
-			var l=['obs','obsta','ob','obst','obstacle'];
+			var l=['obs','obsta','ob','obst','obstac'];
 			
 			   //creates multiple obstacles randomly from the list
-			   for (var i = 0; i <= 4; i++) {
-				var hole = game.rnd.integerInRange(0, 4);	
-								this.spawnObstacle(game.global.obstacle_id++, w / 2 - platform_width / 2 - gap / 2 + offset, game.height, speed = 200, has_given_point = false,l[hole])
-			     				this.spawnObstacle(game.global.obstacle_id++, w / 2 + platform_width / 2 + gap / 2 + offset, game.height, speed = 200, has_given_point = true,l[hole])		
-				}
+			   var hole = game.rnd.integerInRange(0, 4);	
+			   this.spawnObstacle(game.global.obstacle_id++,this.game.rnd.integerInRange(50,game.width-50), game.height, speed = 200, has_given_point = false,l[hole])
 		}
 
 		this.move();
@@ -120,7 +117,7 @@ var play = {
 				let ox = obstacles[i].x;
 
 				//if player is below obstacle and within 5 pixels and choose only one of the pair
-				if (py > oy && Math.abs(py - oy) < 5 && ox < game.width / 2) {
+				if (py > oy && Math.abs(py - oy) < 5) {
 					point++;
 					this.sound.score.play('', 0, 0.5, false)
 				}
@@ -133,9 +130,9 @@ var play = {
 
 		//issues with this
 		//game.plugins.screenShake.shake(20);
-		//this.sound.kill.play('', 0, 0.5, false)
-		//player.kill();
-		//game.state.start('gameOver');
+		this.sound.kill.play('', 0, 0.5, false)
+		player.kill();
+		game.state.start('gameOver');
 
 	},
 
