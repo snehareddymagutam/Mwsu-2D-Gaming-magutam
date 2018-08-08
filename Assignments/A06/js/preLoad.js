@@ -18,17 +18,19 @@ var preLoad = {
 		game.load.image('pause', 'assets/images/pause.png');			
 		game.load.image('splash', 'assets/images/splash_screen.png');
 		game.load.image('gameOver', 'assets/images/game_over_800.png');
+		game.load.image('finishline', 'assets/images/finish-line.png');
 
 		// load atlas or sprites here: 
 		//////////////////////////////////////////////////////
 		//game.ufo.preLoad('atlasKey', 'path/to/atlas.png', 'path/to/atlas.json');
 		//game.load.spritesheet('spritesheetKey', 'path/to/sheet.png', frame_width, frame_height);
 		game.load.atlas('knight_atlas', 'assets/sprites/knight_atlas.png', 'assets/sprites/knight_atlas.json');
-		game.load.atlas('red_portal', 'assets/sprites/red_portal.png', 'assets/sprites/red_portal.json');
-		game.load.atlas('blue_portal', 'assets/sprites/blue_portal.png', 'assets/sprites/blue_portal.json');
+		game.load.atlas('red_portal', 'assets/sprites/portalsheet.png', 'assets/sprites/new_portal.json');
+		game.load.atlas('blue_portal', 'assets/sprites/portal_2.png', 'assets/sprites/portal_2.json');
+		game.load.atlas('santa', 'assets/sprites/santa.png', 'assets/sprites/santa.json');
 		game.load.atlas('apple', 'assets/sprites/applesheet.png', 'assets/sprites/applesprites.json');
 		game.load.spritesheet('portal_smoke', 'assets/sprites/smoke.png', 128, 128);
-		game.load.spritesheet('ghosts', 'assets/sprites/pacman_ghosts.png', 116, 116);
+		game.load.spritesheet('ghosts', 'assets/sprites/pacman_ghosts.png', 147, 103);
 
 		// load audio here: 
 		//game.load.audio('audiokey1', 'path/to/sounds/one.mp3')

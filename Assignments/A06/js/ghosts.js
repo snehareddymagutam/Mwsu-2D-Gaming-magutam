@@ -12,7 +12,8 @@ var Ghosts = function (game, n, x, y) {
     this.y_coord = y;
     this.ghosts = [];
     this.anims = {
-        0: [0, 1], // red up
+
+       /* 0: [0, 1], // red up
         1: [2, 3], // red down
         2: [4, 5], // red left
         3: [6, 7], // red right
@@ -27,7 +28,13 @@ var Ghosts = function (game, n, x, y) {
         12: [24, 25], // orange up
         13: [26, 27], // orange down
         14: [28, 29], // orange left
-        15: [30, 31] // orange right
+        15: [30, 31] // orange right*/
+        0: [0],
+        1: [1],
+        2: [2], 
+        3: [3], 
+        4: [4],
+        5: [5],
     };
 
     this.spawnGhosts(n, x, y);
@@ -67,15 +74,15 @@ Ghosts.prototype.moveGhostTowardPlayer = function (ghost) {
     if (xdiff > ydiff) {
         // set left right value
         if (this.player.x < ghost.x) {
-            key = 2;
-        } else {
             key = 3;
+        } else {
+            key = 4;
         }
         // change eyes up and down if y values differe more
     } else {
         // set up down value
         if (this.player.y < ghost.y) {
-            key = 0;
+            key = 2;
         } else {
             key = 1;
         }

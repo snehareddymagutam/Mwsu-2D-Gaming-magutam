@@ -14,7 +14,7 @@ var Hud = function (game, width,height,title=null,location=null) {
     this.hud_height = height;
     this.hud = game.add.graphics(0, 0); // a graphics object that represents the hud (rectangle really)
     this.title_text = "HUD"; // title text 
-    this.font_size = 16; // default font size
+    this.font_size = 20; // default font size
     this.hud_objs = []; // array of objects so we can delete them and re-create when the game camera moves.
     this.items = [];
 
@@ -23,7 +23,7 @@ var Hud = function (game, width,height,title=null,location=null) {
     
     // Default location is upper left
     if(location == null){
-        location = 'upper_left';
+        location = 'lower_right';
     }
 
     // Get things going
@@ -61,8 +61,8 @@ Hud.prototype.printItems = function(){
         }else{
             value = temp.player[key];
         }
-        item = this.game.add.text(0, 0, key + ":" + value, this._getStyle("#FFF",14));
-        item.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
+        item = this.game.add.text(0,15, key + " : " + value, this._getStyle("#0000FF",16,true));
+        item.setShadow(1, 1, 'rgba(0,0,0,0.5)', 2);
         item.setTextBounds(this.game.camera.x, this.game.camera.y + ((i+1)*20), this.hud_width, this.hud_height);
         this.hud_objs.push(item);
     }
@@ -89,8 +89,8 @@ Hud.prototype.addTitle = function(title=null){
         this.title_text = title;
     }
     // Create the text object to be placed in the hud
-    title = this.game.add.text(0, 0, this.title_text, this._getStyle("#FFF",this.font_size,true));
-    title.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
+    title = this.game.add.text(0,10, this.title_text, this._getStyle("#0000FF",this.font_size,true));
+    title.setShadow(1, 1, 'rgba(0,0,0,0.5)', 2);
     title.setTextBounds(this.game.camera.x, this.game.camera.y, this.hud_width, this.hud_height);
 
     // Push that object onto the array of objects to get drawn
@@ -103,9 +103,9 @@ Hud.prototype.addTitle = function(title=null){
  */
 Hud.prototype._createHud = function(){
     hud = game.add.graphics(0, 0);
-    hud.lineStyle(2, 0x000000, 1);
-    hud.beginFill(0x000000, .4);
-    hud.drawRect(this.game.camera.x+1, this.game.camera.y+1, this.hud_width, this.hud_height);
+    hud.lineStyle(5, 0xffffff, 1);
+    hud.beginFill(0x00ff00, .9);
+    hud.drawCircle(this.game.camera.x+53, this.game.camera.y+53, this.hud_width+10, this.hud_height+10);
     hud.endFill();
     this.hud_objs.push(hud);
 }
